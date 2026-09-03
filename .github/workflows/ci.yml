@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -24,12 +24,9 @@ jobs:
         run: mvn clean package
 
       - name: Build and push Docker Image
-      - uses: mr-smithers-excellent/docker-build-push@v7
-
+        uses: mr-smithers-excellent/docker-build-push@v7
         with:
-            image: charmzzy/intra
-            registry: docker.io
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-
-
+          image: charmzzy/intra
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
